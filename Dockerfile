@@ -14,6 +14,12 @@ COPY requirements.txt /app/
 # Install the dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Install PostgreSQL client and psycopg2-binary
+RUN apt-get update && apt-get install -y libpq-dev \
+    && pip install psycopg2-binary \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
+
 # Copy the rest of the application code
 COPY . /app/
 

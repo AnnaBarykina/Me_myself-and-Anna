@@ -2,12 +2,12 @@
 set -e
 
 # Имя образа (замените на ваше имя)
-IMAGE_NAME="username/your-repo"
+IMAGE_NAME="barykinaanna/zeus"
 # Тег образа
 IMAGE_TAG="latest"
 
 # Логин в Docker Hub (предполагается, что DOCKER_USERNAME и DOCKER_PASSWORD заданы)
-echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
+#echo "$DOCKER_PASSWORD" | docker login --username "$DOCKER_USERNAME" --password-stdin
 
 # Создать и активировать билд-контекст Buildx, если он ещё не создан
 docker buildx create --name multiarch-builder --use || true
